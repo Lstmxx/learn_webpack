@@ -5,20 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   /*入口js*/
   entry: {
-    app: './src/index.js',
-    other: './src/print.js'
+    app: './src/index.js'
+    // other: './src/print.js'
   },
-  /*创建source-map，用来当代码出错的时候，定位问题所在*/
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    overlay: true,
-    hot: true,
-    inline: true
-  },
-  /*自动生成html文件*/
+  
   plugins: [
     new CleanWebpackPlugin(),
+    /*自动生成html文件*/
     new htmlWebpackPlugin({
       title: 'Lstmxx'
     })
@@ -42,7 +35,13 @@ module.exports = {
         use: [
           'file-loader'
         ]
-      }
+      },
+      // {
+      //   test: /\.js$/,
+      //   use: [
+      //     'babel-loader'
+      //   ]
+      // }
     ]
   }
 }

@@ -1,4 +1,4 @@
 export default function printHim () {
   console.log('rush BBBBB')
-  console.log('wdnmdDFDF')
+  console.log('wdnmdDFDFwud')
 }
