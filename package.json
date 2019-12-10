@@ -1,0 +1,35 @@
+{
+  "name": "learn_webpack",
+  "version": "1.0.0",
+  "description": "从零开始的webpack搭建",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config Lstmxx.config.js",
+    "dev": "webpack-dev-server --config Lstmxx.config.js --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lstmxx/learn_webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lstmxx/learn_webpack/issues"
+  },
+  "homepage": "https://github.com/Lstmxx/learn_webpack#readme",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.3.0",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.1",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
