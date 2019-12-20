@@ -2,11 +2,10 @@ const path = require('path')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const base = require('./Lstmxx.base.config')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-
 module.exports = merge(base, {
   /*创建source-map，用来当代码出错的时候，定位问题所在*/
   devtool: 'inline-source-map',
+  mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     overlay: true,
@@ -15,10 +14,39 @@ module.exports = merge(base, {
   },
   /*自动生成html文件*/
   plugins: [
-    new htmlWebpackPlugin({
-      title: 'Lstmxx-dev'
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      }
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('dart-sass')
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      }
+    ]
+  }
 })
